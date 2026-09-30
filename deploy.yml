@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-e2e
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cicd-e2e
+  template:
+    metadata:
+      labels:
+        app: cicd-e2e
+    spec:
+      containers:
+        - name: cicd-e2e
+          image: bharathdr7/cicd-e2e:32
+          ports:
+            - containerPort: 8000
